@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 프로젝트 개요 (Overview)
+## 프로젝트 개요 (Overview)
 
 산업용 대형 트럭 플릿 환경에서 센서 기반 고장 예측 모델은 정상 데이터가 90% 이상을 차지하는 극단적 불균형과 심한 비정규 편포(Fat-tail, Skewness)로 인해 일반적인 가우시안 가정 기반 머신러닝이나 순수 딥러닝(Pure Deep Learning) 적용 시 심각한 한계에 직면합니다[cite: 16, 17, 18]. 특히 미탐지(False Negative) 비용이 오탐지(False Positive)보다 압도적으로 높은 비대칭 비용 구조 하에서는 기존 딥러닝 모델들이 미탐지를 피하기 위해 전체 차량에 무차별 정비 경보를 울리는 '과잉 정비(Over-maintenance, 100% 점검)' 딜레마에 빠지게 됩니다.
 
@@ -18,20 +18,3 @@
 
 ---
 
-## 2. 데이터셋 아키텍처 및 벤치마크 규격 (Dataset Specifications)
-
-본 연구 파이프라인은 Scania AB에서 공식 공개한 두 가지 산업용 표준 벤치마크 데이터를 포괄하여 검증을 수행합니다[cite: 16, 18].
-Data Repository Structure
-├── Scania Component X (Primary Benchmark: Multivariate Irregular Time Series)
-│   ├── train_operational_readouts.csv  (1,122,452 rows, 23,550 unique vehicles)
-│   ├── train_specifications.csv        (23,550 vehicles, 8 categorical specs: Spec_0~Spec_7)
-│   ├── train_tte.csv                   (23,550 vehicles, length_of_study, in_study_repair)
-│   ├── val_operational_readouts.csv    (196,227 rows, 5,046 vehicles, randomly censored)
-│   ├── val_specifications.csv          (5,046 vehicles)
-│   ├── val_labels.csv                  (5,046 vehicles, 5-class degradation labels)
-│   ├── test_operational_readouts.csv   (198,140 rows, 5,045 vehicles)
-│   ├── test_specifications.csv         (5,045 vehicles)
-│   └── test_labels.csv                 (5,045 vehicles, gold-standard evaluation)
-└── Scania APS (Comparative Domain: Static High-Dimensional Tabular Sensors)
-├── aps_failure_training_set.csv    (60,000 instances, 170 numerical sensors)
-└── aps_failure_test_set.csv        (16,000 instances, 170 numerical sensors)
